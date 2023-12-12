@@ -1,0 +1,408 @@
+* {
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  /* overflow: hidden; */
+  /* border: 1px solid; */
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+body {
+  background-color: #eee;
+}
+#particles-js {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+/* navbar */
+nav {
+  color: black;
+  z-index: 99;
+  position: fixed;
+  display: grid;
+  background-color: #fff;
+  width: 100%;
+  /* justify-content: center;*/
+  align-items: center;
+  height: 50px;
+  grid-template-columns: 10% auto 10%;
+  grid-template-areas: "logo menu toggle";
+}
+.menu {
+  z-index: 1;
+  grid-area: menu;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin-left: 200px;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  justify-self: left;
+  display: grid;
+  margin-left: 10px;
+  width: 100%;
+  grid-area: logo;
+}
+.logo p {
+  font-size: 40px;
+  font-family: "The Nautigal", cursive;
+}
+nav .list {
+  list-style: none;
+}
+.list li {
+  margin-left: 50px;
+  display: inline;
+  font-weight: bolder;
+}
+.menu-toggle {
+  display: none;
+  grid-area: toggle;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  left: -5px;
+  top: -4px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background-color: black;
+  border-radius: 3px;
+  flex: 0.12;
+  transition: all 0.5s;
+}
+
+/* hamburger menu animation */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+.menu-toggle input:checked ~ span:nth-child(2) {
+  background-color: black;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+.menu-toggle input:checked ~ span:nth-child(4) {
+  background-color: black;
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+.menu-toggle input:checked ~ span:nth-child(3) {
+  opacity: 0;
+  transform: scale(0);
+}
+/* home page */
+.home {
+  display: grid;
+  width: 100%;
+  height: 660px;
+  grid-template-columns: 55% 45%;
+  grid-template-areas: "text foto";
+}
+.text {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-area: text;
+}
+.home .inputCursor {
+  display: inline-block;
+  background-color: #000;
+  width: 2px;
+  height: 34px;
+  position: absolute;
+  animation: blynk infinite 0.7s ease;
+}
+.text button {
+  color: black;
+  border: 2px solid #5f5f5f;
+  border-radius: 10px;
+  margin-top: 30px;
+  width: 150px;
+  height: 50px;
+  background-color: transparent;
+  transition: 0.5s ease;
+}
+.text button:hover {
+  color: white;
+  box-shadow: 0 0 5px black;
+  background-color: #5f5f5f;
+  border: none;
+}
+.text1 {
+  letter-spacing: 2px;
+  margin-top: 50px;
+  font-size: 25px;
+  height: 220px;
+  text-align: center;
+}
+.text1 p span:nth-child(1) {
+  font-size: 20px;
+}
+.text1 p span:nth-child(2) {
+  font-size: 28px;
+  font-weight: bold;
+}
+.photo {
+  z-index: 1;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  grid-area: foto;
+  grid-template-rows: 90% auto;
+  grid-template-areas:
+    "img"
+    "sosmed";
+}
+.photo img {
+  border-radius: 100%;
+  margin-right: 100px;
+  border: 3px solid;
+  grid-area: img;
+}
+.sosmed {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+.mediasosial {
+  margin-left: 3%;
+  grid-area: sosmed;
+  font-size: 30px;
+  color: black;
+}
+/* profil page */
+.profil {
+  display: grid;
+  background-color: white;
+  width: 100%;
+  height: 660px;
+}
+.profil .isi-profil {
+  z-index: 2;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-areas:
+    "profil"
+    "text";
+  grid-template-rows: 25% auto;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  background-color: white;
+}
+.profil .isi-profil .judul {
+  display: grid;
+  align-items: end;
+  grid-area: profil;
+  height: 100%;
+  width: 100%;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: normal;
+}
+.profil .isi-profil .foto {
+  display: flex;
+  grid-area: text;
+  justify-content: center;
+  align-items: center;
+}
+.profil .isi-profil .foto .content {
+  display: flex;
+  height: 300px;
+  width: 80%;
+  align-items: center;
+  gap: 112px;
+  font-family: Montserrat;
+  text-shadow: 5px 5px 10px #adadad, -5px -5px 10px #ffffff;
+  font-size: 27px;
+}
+.profil .isi-profil .foto .content img {
+  border-radius: 31% 69% 21% 79% / 64% 35% 65% 36%;
+  box-shadow: 37px 37px 74px #adadad, -37px -37px 74px #ffffff;
+}
+.portfolio {
+  display: grid;
+  background-color: white;
+  width: 100%;
+  height: 540px;
+}
+.portfolio .isi-portfolio {
+  z-index: 2;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  background-color: #eee;
+}
+.isi-portfolio .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 100px;
+}
+.isi-portfolio .label {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  width: 230px;
+  height: 231px;
+  border-radius: 76px;
+  background: #d9d9d9;
+  box-shadow: 17px 11px 24.6px 0px rgba(0, 0, 0, 0.25),
+    -26px -13px 19.3px 0px rgba(255, 255, 255, 0.25);
+}
+.isi-portfolio .label .sub-label {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  height: 45%;
+  width: 100%;
+  border-radius: 76px;
+  background: #efecec;
+  box-shadow: 3px 4px 6.6px 0px rgba(0, 0, 0, 0.25),
+    -9px -4px 16.4px 0px rgba(255, 255, 255, 0.25);
+}
+.isi-portfolio .label .sub-label button {
+  z-index: 3;
+  width: 162px;
+  height: 27px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 0;
+  background-color: #e6e6e6;
+  box-shadow: 7px 4px 10.1px 0px rgba(0, 0, 0, 0.25),
+    -6px -9px 5.8px 0px rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: 1s ease;
+}
+.isi-portfolio .label .sub-label button:hover {
+  background-color: rgb(180, 180, 180);
+  box-shadow: 7px 4px 10.1px 0px rgba(255, 255, 255, 0.25),
+    -6px -2px 5.8px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* animasi */
+@keyframes blynk {
+  0% {
+    opacity: 0%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+
+/* ukuran mobile */
+@media screen and (max-width: 972px) {
+  .text1 {
+    margin-top: 0;
+  }
+  .home {
+    height: 700px;
+    grid-template-columns: auto;
+    grid-template-rows: 45% 55%;
+    grid-template-areas:
+      "logo"
+      "text";
+  }
+  .photo {
+    margin-top: 40px;
+    grid-area: logo;
+  }
+  .photo img {
+    margin-top: 50px;
+    margin-right: 0;
+  }
+  .sosmed {
+    justify-content: center;
+    margin-left: 0;
+  }
+  .text {
+    grid-area: text;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .menu {
+    margin-left: 0;
+  }
+  .logo {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 857px) {
+  nav ol {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #fff;
+    z-index: -1;
+    transform: translateY(-100%);
+    transition: all 1s;
+    opacity: 0;
+  }
+  nav ol.slide {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .menu-toggle {
+    display: flex;
+
+    z-index: 2;
+  }
+  .profil {
+    height: 1000px;
+  }
+  .profil .isi-profil .judul {
+    margin-top: -220px;
+  }
+  .profil .isi-profil .foto .content {
+    margin-top: -100px;
+    flex-direction: column;
+  }
+  .portfolio {
+    height: 1300px;
+  }
+}
